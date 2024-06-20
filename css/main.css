@@ -1,0 +1,119 @@
+/* Start Basic */
+body {
+  height: 100vh;
+  font-family: "Noto Kufi Arabic", sans-serif;
+  background-image: linear-gradient(#4a2c8e, #fff);
+  background-position: center;
+  background-size: cover;
+}
+
+h1,
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 15px;
+}
+
+.tr {
+  transition: all 1.5s;
+}
+
+.parent {
+  backdrop-filter: blur(200px);
+  height: 710px;
+}
+
+.btn-my {
+  background-color: #4a2c8e;
+  border: 1px solid white;
+  transition: all 350ms;
+}
+
+.btn-my:hover {
+  background-color: #311c64;
+}
+
+.line {
+  width: 90%;
+  height: 4px;
+  background-color: #0041817e;
+}
+
+.transfart-Btn:hover {
+  text-decoration: underline;
+}
+
+/* End Basic */
+
+/* To hide the arrows of Type"Number [Chrom & FireFox]" */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Eye Styeling */
+.view {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-100%);
+  cursor: pointer;
+}
+
+/* Start Sign up From */
+.sign-up-hero {
+  bottom: 0;
+  scale: 1;
+  opacity: 1;
+  position: absolute;
+}
+
+.sign-up-hero-move {
+  bottom: 100%;
+  scale: 0;
+  opacity: 0;
+}
+
+.bi {
+  width: 20px;
+}
+
+.alert {
+  height: 20px;
+  margin-top: -10px;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #58151c;
+  font-size: 14px;
+  margin-top: -15px;
+  width: fit-content;
+}
+
+/* End Sign up From */
+
+/* Start Sign in From */
+.sign-in-hero {
+  top: 100%;
+  scale: 0;
+  opacity: 0;
+}
+
+.sign-in-hero-move {
+  top: 0;
+  scale: 1;
+  opacity: 1;
+}
+
+.h405 {
+  height: 450px;
+}
+
+/* End Sign in From */

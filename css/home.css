@@ -1,0 +1,134 @@
+/* Start Basic*/
+body {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  background-image: linear-gradient(#4a2c8e, #fff);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  margin: 0;
+}
+
+/* End Basic*/
+
+/* Start Nav*/
+.collapse {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.navbar-collapse {
+  transition: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+nav {
+  background: #4a2c8e;
+}
+
+.logo {
+  width: 130px;
+}
+
+/* End Nav*/
+
+/* Start Form-inputs*/
+/* To hide the arrows of Type"Number [Chrom & FireFox]" */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+select {
+  padding: 2px;
+
+  height: 59px;
+  -webkit-appearance: none;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+.fa-angle-down {
+  left: 15px;
+}
+
+.error-empty,
+.error-home {
+  background-color: #f8d7da;
+  color: #58151c;
+  font-size: 13px;
+
+  width: fit-content;
+}
+
+/* End Form-inputs*/
+
+/* Start Table*/
+table {
+  width: 95% !important;
+  margin: auto;
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+th {
+  min-width: 200px;
+  padding-block: 35px !important;
+  font-weight: 800;
+}
+
+td {
+  font-weight: 500;
+}
+
+td i {
+  cursor: pointer;
+}
+
+td:nth-last-child(3) {
+  background-color: #198754;
+  font-weight: 500;
+  color: white;
+}
+
+td:nth-last-child(2) {
+  background-color: #ffc107;
+  color: #000;
+  font-weight: 500;
+}
+
+.special {
+  min-width: 160px !important;
+}
+
+.fa-trash-can:hover {
+  animation: fa-shake 2s linear !important;
+}
+
+.fa-magnifying-glass {
+  left: 30px;
+  font-size: 14px;
+}
+
+.fs-15 {
+  font-size: 14px;
+}
+
+.route-color {
+  color: #004181;
+}
+
+.search-parent {
+  width: 370px;
+}
+
+/* End Table*/

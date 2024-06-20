@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Scripto" />
+  <!--! Googel Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="./img/icons/code-solid (2).svg" />
+  <link rel="stylesheet" href="./css/all.min.css" />
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <title>Route Registration</title>
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+  <!-- Start Main -->
+  <main id="parent" class="container parent tr overflow-hidden position-relative rounded-5 mx-5">
+    <!-- Start Sign Up Section -->
+    <section id="signUpHero" class="row sign-up-hero tr sign-up-from w-100 px-4 mb-3">
+      <form class="py-3 d-flex flex-column justify-content-center align-items-center mb-2">
+        <h1 class="fw-bold mb-4 align-self-start text-white">
+          إنشاء حساب جديد
+        </h1>
+        <input autocomplete="off" id="adminNameUp" type="text" placeholder="اسم المستخدم"
+          class="form-control mb-4 rounded-4 py-3 px-4 shadow" />
+        <p id="error" class="error ms-auto py-1 ms-1 px-3 rounded-5 mb-2 d-none">
+          <i class="fa-regular fa-circle-xmark me-1"></i>
+          يجد إدخال أسم مستخدم لا يقل عن 3 أحرف
+        </p>
+        <input autocomplete="off" id="adminEmailUp" type="email" placeholder="البريد الالكتروني"
+          class="form-control mb-4 rounded-4 py-3 px-4 shadow" />
+        <p class="error ms-auto py-1 ms-1 px-3 rounded-5 mb-2 d-none">
+          <i class="fa-regular fa-circle-xmark me-1"></i>
+          يجب إدخال بريد إلكتروني صحيح
+        </p>
+        <div class="w-100 position-relative">
+          <input autocomplete="off" id="adminPasswordUp" type="password" placeholder="كلمة السر"
+            class="form-control mb-4 rounded-4 py-3 px-4 shadow" />
+          <p class="error ms-auto py-1 ms-1 px-3 rounded-5 mb-2 d-none">
+            <i class="fa-regular fa-circle-xmark me-1"></i>
+            يجب إدخال ٦ أرقام
+          </p>
+          <i onclick="chengeInputTypeToText()" id="hEye" class="fa-regular fa-fw text-secondary view fa-eye-slash"></i>
+          <i onclick="chengeInputTypeToPassword()" id="vEye"
+            class="fa-regular fa-fw text-secondary view d-none fa-eye"></i>
+        </div>
+        <input autocomplete="off" id="adminConfirmPassword" type="password" placeholder="تأكيد  كلمة السر"
+          class="form-control mb-4 rounded-4 py-3 px-4 shadow" />
+        <p id="passwordAlert" class="error ms-auto py-1 ms-1 px-3 rounded-5 mb-2 d-none">
+          <i class="fa-solid fa-triangle-exclamation fs-6 me-2"></i>
+          يجب تطابق كلمة السر
+        </p>
+        <input autocomplete="off" id="adminPhoneUp" type="number" placeholder="رقم الهاتف"
+          class="form-control mb-4 rounded-4 py-3 px-4 shadow" />
+        <p class="error ms-auto py-1 ms-1 px-3 rounded-5 mb-2 d-none">
+          <i class="fa-regular fa-circle-xmark me-1"></i>
+          يجب إدخال رقم هاتف صحيح
+        </p>
+        <p id="existingAlert" class="error py-1 ms-1 px-3 rounded-5 mb-2 d-none">
+          <i class="fa-solid fa-triangle-exclamation fs-6 me-2"></i>
+          الحساب أو رقم الهاتف موجدين بالفعل
+        </p>
+        <p id="emptyAlert" class="error py-1 ms-1 px-3 rounded-5 mb-2 d-none">
+          <i class="fa-solid fa-triangle-exclamation fs-6 me-2"></i>
+          يجب إدخال جميع البيانات
+        </p>
+        <button onclick="addAdmin()" id="signUpBtn" type="button"
+          class="btn-my rounded-4 p-1 fs-5 fw-semibold w-50 text-white">
+          إنشاء حساب
+        </button>
+        <div class="line my-3"></div>
+        <p class="text-secondary">
+          هل لديك حساب؟
+          <button type="button" onclick="signInMoveToUp()"
+            class="border-0 bg-transparent fs-5 transfart-Btn text-secondary">
+            تسجيل الدخول
+          </button>
+        </p>
+      </form>
+    </section>
+    <!-- End Sign Up Section -->
+
+    <!-- Start Sign In Section -->
+    <section id="signInHero" class="row sign-in-hero tr w-100 position-absolute px-4 py-4">
+      <form class="py-3 d-flex flex-column justify-content-center align-items-center">
+        <h2 class="fw-bold mb-4 align-self-start text-white">تسجيل الدخول</h2>
+        <input autocomplete="off" id="adminEmailIn" type="email" placeholder="البريد الالكتروني أو رقم الهاتف"
+          class="form-control mb-4 rounded-4 py-3 px-4 shadow" />
+        <div class="w-100 position-relative">
+          <input autocomplete="off" id="adminPasswordIn" type="password" placeholder="كلمة السر"
+            class="form-control mb-4 rounded-4 py-3 px-4 shadow" />
+          <i onclick="chengeInputTypeToText()" id="hEyeSignIn"
+            class="fa-regular fa-fw text-secondary view fa-eye-slash"></i>
+          <i onclick="chengeInputTypeToPassword()" id="vEyeSignIn"
+            class="fa-regular fa-fw text-secondary view d-none fa-eye"></i>
+        </div>
+        <p id="correctAlert" class="error py-1 ms-1 px-3 rounded-5 mb-2 d-none">
+          <i class="fa-solid fa-triangle-exclamation fs-6 me-2"></i>
+          الحساب أو كلمة السر غير صحيحة
+        </p>
+        <button onclick="logIn()" type="button" class="btn-my rounded-4 p-1 fs-5 fw-semibold w-50 mt-2 text-white">
+          تسجيل الدخول
+        </button>
+        <div class="line my-3"></div>
+        <p class="text-secondary">
+          ليس لديك حساب؟
+          <button onclick="signUpMoveToDown()" type="button" id="signInBtn"
+            class="border-0 bg-transparent fs-5 transfart-Btn text-secondary">
+            إنشاء حساب جديد
+          </button>
+        </p>
+      </form>
+    </section>
+    <!-- End Sign In Section -->
+  </main>
+  <!-- End Main -->
+  <script src="./js/index.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

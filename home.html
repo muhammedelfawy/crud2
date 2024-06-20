@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Scripto" />
+  <!--! Googel Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/all.min.css" />
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/home.css" />
+  <title>crud operation</title>
+</head>
+
+<body>
+  <!-- Start Nav -->
+  <nav class="navbar fixed-top shadow" data-bs-theme="dark">
+    <div class="container">
+      <div class="logo">
+        <a href="./home.html" class=" text-decoration-none fw-bold text-light fs-1">Center</a>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <h1 class="text-center me-auto ms-3 h5 fw-light mb-0">
+          مرحبا أدمن : <span id="HomeAdminName"></span>
+        </h1>
+        <button class="btn btn-danger my-2" onclick="logOut()">
+          تسجيل خروج
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- End Nan -->
+
+  <!-- Start Main -->
+  <main>
+    <!-- Start Inputs Section -->
+    <section class="form-inputs px-5 px-sm-0 py-5 my-5">
+      <form>
+        <div class="container py-5">
+          <div class="row gy-3 mb-3">
+            <div class="col-sm-4">
+              <div class="inner">
+                <input autocomplete="off" id="studentName" class="py-3 w-100 form-control shadow rounded-4" type="text"
+                  placeholder="اسم الطالب" />
+                <p class="error-home ms-auto py-1 ms-1 px-3 rounded-5 my-3 mb-0 d-none">
+                  <i class="fa-regular fa-circle-xmark me-1"></i>
+                  يجد إدخال أسم مستخدم لا يقل عن 3 أحرف
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="inner">
+                <input autocomplete="off" id="studentEmail" class="py-3 w-100 form-control shadow rounded-4"
+                  type="email" placeholder="البريد الإلكتروني" />
+                <p class="error-home ms-auto py-1 ms-1 px-3 rounded-5 my-3 mb-0 d-none">
+                  <i class="fa-regular fa-circle-xmark me-1"></i>
+                  يجب إدخال بريد إلكتروني صحيح
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="inner">
+                <input autocomplete="off" id="studentPhone" class="py-3 w-100 form-control shadow rounded-4"
+                  type="number" placeholder="رقم الهاتف" />
+                <p class="error-home ms-auto py-1 ms-1 px-3 rounded-5 my-3 mb-0 d-none">
+                  <i class="fa-regular fa-circle-xmark me-1"></i>
+                  يجب إدخال رقم هاتف صحيح
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row gy-3 mb-3">
+            <div class="col-sm-4">
+              <div class="inner">
+                <input type="date" id="registrationDate" class="py-3 w-100 form-control shadow rounded-4" />
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="inner position-relative">
+                <select id="routeLocation" class="w-100 rounded-4 px-3">
+                  <option selected>فرع</option>
+                  <option value="مصطفى النحاس">مصطفى النحاس</option>
+                  <option value="رابعه">رابعه</option>
+                  <option value="الدقى">الدقى</option>
+                  <option value="المعادى">المعادى</option>
+                  <option value="الإسكندرية">الإسكندرية</option>
+                </select>
+                <i class="fa-solid fa-angle-down text-black position-absolute top-50 translate-middle-y"></i>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="inner position-relative">
+                <select oninput="clacRemainingAmount()" id="deplomaName" class="w-100 rounded-3 px-3 rounded-4">
+                  <option selected>الدبلومه</option>
+                  <option value="Front End">Front End</option>
+                  <option value="Back End">Back End</option>
+                  <option value="UI / UX">UI / UX</option>
+                  <option value="Full Stack">Full Stack</option>
+                </select>
+                <i class="fa-solid fa-angle-down text-black position-absolute top-50 translate-middle-y"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row gy-3 mb-3 justify-content-center">
+            <div class="col-sm-4">
+              <div class="inner">
+                <input oninput="clacRemainingAmount()" value="0" autocomplete="off" id="amountPaid"
+                  class="py-3 w-100 form-control shadow rounded-4" type="number" placeholder="المبلغ المدفوع" />
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="inner">
+                <input readonly autocomplete="off" id="remainingAmount" class="py-3 w-100 form-control shadow rounded-4"
+                  type="number" placeholder="باقى المبلغ" />
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <p id="emptyInputsAlert" class="error-empty py-1 px-3 rounded-5 my-2 d-none">
+              <i class="fa-solid fa-triangle-exclamation fs-6 me-2"></i>
+              يجب إدخال جميع البيانات
+            </p>
+            <button id="addStudentBtn" onclick="AddStudent()" type="button" class="btn btn-success mt-4 px-4 shadow">
+              اضافة طالب
+            </button>
+            <button id="updataStudentData" onclick="updataStudent()" type="button"
+              class="btn btn-warning mt-4 d-none px-3 shadow fw-bolde">
+              تحديث البيانات
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <!-- End Inputs Section -->
+
+    <!-- Search input -->
+    <div class="search-parent m-auto mb-5 position-relative">
+      <i class="fa-solid position-absolute opacity-75 fa-magnifying-glass text-secondary top-50 translate-middle-y"></i>
+      <input autocomplete="off" oninput="searchStudents()" type="text"
+        class="form-control search m-auto rounded-4 w-100" id="searchInput" placeholder="البحث" />
+    </div>
+
+    <!-- Start table -->
+    <section class="table-responsive text-black">
+      <table class="table mb-5">
+        <thead class="text-center">
+          <tr class="">
+            <th class="rounded-5">
+              الاسم<i class="fa-solid fa-file-signature fs-15 me-2 route-color"></i>
+            </th>
+            <th class="rounded-5">
+              البريد الإلكتروني<i class="fa-solid fa-at me-2 fs-15 route-color"></i>
+            </th>
+            <th class="rounded-5 special">
+              رقم الهاتف<i class="fa-solid fa-phone me-2 fs-15 route-color"></i>
+            </th>
+            <th class="rounded-5 special">
+              تاريخ التسجيل<i class="fa-regular fa-clock fs-15 me-2 route-color"></i>
+            </th>
+            <th class="rounded-5 special">
+              فرع<i class="fa-solid fa-location-dot fs-15 me-2 text-danger"></i>
+            </th>
+            <th class="rounded-5 special">
+              الدبلومه<i class="fa-solid fa-graduation-cap me-2 fs-15 route-color"></i>
+            </th>
+            <th class="rounded-5 special">
+              المبلغ المدفوع<i class="fa-solid fs-15 fa-dollar-sign me-1 fa-fw text-success"></i>
+            </th>
+            <th class="rounded-5 special">
+              المبلغ المتبقي<i class="fa-solid fa-coins text-warning fs-15 me-2"></i>
+            </th>
+            <th class="rounded-5 special">
+              تعديل أو حذف<i class="fa-solid fa-user-pen me-2 fs-15 route-color"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="parentHtml" class="text-center table-group-divider"></tbody>
+      </table>
+    </section>
+    <!-- End table -->
+  </main>
+  <!-- End Main -->
+  <script src="./js/home.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
